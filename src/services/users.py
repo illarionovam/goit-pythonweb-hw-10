@@ -10,6 +10,9 @@ class UserService:
     def __init__(self, db: AsyncSession):
         self.repository = UserRepository(db)
 
+    async def confirm_email(self, email: str):
+        return await self.repository.confirm_email(email)
+
     async def create_user(self, body: UserCreate):
         avatar = None
         try:

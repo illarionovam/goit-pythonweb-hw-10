@@ -8,8 +8,13 @@ from pydantic import (
     root_validator,
     constr,
     field_validator,
+    EmailStr,
 )
 import re
+
+
+class RequestEmail(BaseModel):
+    email: EmailStr
 
 
 class UserModel(BaseModel):
@@ -20,6 +25,7 @@ class UserModel(BaseModel):
 class UserResponse(UserModel):
     id: int
     created_at: datetime | None
+    confirmed: bool
     avatar: Optional[str] = Field(None, max_length=255)
     model_config = ConfigDict(from_attributes=True)
 

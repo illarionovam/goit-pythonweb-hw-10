@@ -33,3 +33,4 @@ class User(Base):
     )
     avatar: Mapped[str] = mapped_column(String(255))
     contacts: Mapped[list["Contact"]] = relationship("Contact", back_populates="user")
+    confirmed: Mapped[bool] = mapped_column(Boolean, default=False)

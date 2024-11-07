@@ -11,6 +11,11 @@ class UserRepository:
     def __init__(self, session: AsyncSession):
         self.db = session
 
+    async def confirm_email(self, email: str) -> None:
+        user = await self.get_user_by_email(email)
+        user.confirmed = True
+        await self.db.commit()
+
     async def get_user_by_id(self, user_id: int) -> User | None:
         stmt = select(User).filter_by(id=user_id)
         user = await self.db.execute(stmt)
