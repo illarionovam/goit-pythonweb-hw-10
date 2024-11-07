@@ -1,0 +1,4 @@
+testvenv1/
+**/__pycache__/**
+**/migrations/**
+.env
