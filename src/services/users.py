@@ -31,3 +31,6 @@ class UserService:
 
     async def get_user_by_username(self, username: str):
         return await self.repository.get_user_by_username(username)
+
+    async def update_avatar_url(self, email: str, url: str):
+        return await self.repository.update_avatar_url(email, url)
