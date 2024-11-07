@@ -20,6 +20,7 @@ class UserModel(BaseModel):
 class UserResponse(UserModel):
     id: int
     created_at: datetime | None
+    avatar: Optional[str] = Field(None, max_length=255)
     model_config = ConfigDict(from_attributes=True)
 
 
